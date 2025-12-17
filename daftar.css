@@ -1,0 +1,308 @@
+/* =========================================
+   RESET & GLOBAL
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #fcfcfc;
+}
+
+/* =========================================
+   NAVBAR (Menu Tengah, Logo Kiri)
+========================================= */
+.navbar {
+    display: flex;
+    justify-content: center; /* Memusatkan elemen anak (nav-links) */
+    align-items: center;
+    padding: 20px 5%;
+    background: #e4cbb3;
+    position: relative; /* Penting untuk posisi absolut logo */
+    z-index: 10;
+    height: 80px; /* Tinggi navbar */
+}
+
+/* Logo ditempel di Kiri menggunakan Absolute Position */
+.nav-logo {
+    position: absolute;
+    left: 5%; /* Jarak dari kiri */
+    top: 50%;
+    transform: translateY(-50%); /* Agar pas di tengah vertikal */
+}
+
+.nav-logo img {
+    height: 40px;
+    display: block;
+}
+
+/* Menu Link (Tepat di Tengah Layar) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px; /* Jarak antar menu lebih lega */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600; /* Sedikit lebih tebal */
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #2d3436; /* Efek hover warna gelap */
+}
+
+/* Responsif untuk Layar Kecil (HP) */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between; /* Kembali normal di HP */
+    }
+    .nav-logo {
+        position: static; /* Hilangkan absolute di HP */
+        transform: none;
+    }
+    .nav-links {
+        display: none; /* Sembunyikan menu di HP (biasanya butuh hamburger menu) */
+    }
+}
+/* =========================================
+   REGISTRATION WRAPPER (Background Utama)
+   Gradient Peach/Orange lembut
+========================================= */
+.registration-wrapper {
+    width: 100%;
+    min-height: 120vh; /* Agar panjang ke bawah */
+    /* Gradient meniru gambar: Atas terang, bawah oranye gelap */
+    background: linear-gradient(180deg, #e4cbb3 0%, #f1a968 50%, #f39c5b 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Mulai dari atas */
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+/* =========================================
+   FORM CARD (Glassmorphism)
+========================================= */
+.form-card {
+    width: 600px;
+    background: rgba(255, 255, 255, 0.15); /* Transparan */
+    backdrop-filter: blur(10px); /* Efek Blur */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    font-size: 1.8rem;
+    color: #2d3436;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.form-header p {
+    color: #636e72;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   INPUT FIELDS
+========================================= */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 8px;
+}
+
+/* Input Styles - Background agak gelap transparan spt gambar */
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(199, 169, 147, 0.4); /* Warna coklat pudar transparan */
+    color: #2d3436;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: #5a5a5a;
+}
+
+/* Phone Input Special */
+.phone-input {
+    display: flex;
+    align-items: center;
+    background: rgba(199, 169, 147, 0.4);
+    border-radius: 8px;
+    padding: 0 10px;
+}
+
+.phone-input input {
+    background: transparent !important; /* Timpa style default */
+    padding-left: 10px;
+}
+
+.indo-flag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    color: #2d3436;
+    font-size: 0.9rem;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    padding-right: 10px;
+}
+
+/* =========================================
+   CHECKBOXES (Skills Grid)
+========================================= */
+.section-label {
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    margin-top: 10px;
+}
+
+.sub-label {
+    font-size: 0.8rem;
+    color: #636e72;
+    margin-bottom: 10px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 Kolom */
+    gap: 10px;
+}
+
+.checkbox-item {
+    font-size: 0.85rem;
+    color: #2d3436;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+    accent-color: #2d3436; /* Warna centang */
+    width: 16px; height: 16px;
+}
+
+/* Terms Checkboxes */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: #2d3436;
+    cursor: pointer;
+}
+
+.checkbox-row input {
+    accent-color: #2d3436;
+}
+
+/* =========================================
+   BUTTON SUBMIT
+========================================= */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #cfa376; /* Warna Emas/Coklat sesuai tombol download */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-submit:hover {
+    background: #b58b61;
+}
+
+/* =========================================
+   FOOTER (Clean White - Sama Persis Sebelumnya)
+========================================= */
+.main-footer {
+    background-color: #ffffff;
+    padding-top: 60px;
+    border-top: 1px solid #eeeeee;
+    font-family: 'Poppins', sans-serif;
+    color: #2d3436;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 40px 5%;
+    gap: 30px;
+}
+
+.footer-col { flex: 1; min-width: 160px; }
+.brand-col { flex: 1.5; padding-right: 30px; }
+
+.footer-logo h3 { font-size: 24px; font-weight: 800; color: #2d3436; margin-bottom: 15px; }
+.footer-logo span { color: #e67e22; }
+
+.brand-col p { font-size: 0.9rem; color: #636e72; line-height: 1.6; margin-bottom: 20px; }
+
+.social-icons a {
+    display: inline-flex; justify-content: center; align-items: center;
+    width: 36px; height: 36px; background-color: #f1f2f6; color: #2d3436;
+    border-radius: 50%; margin-right: 10px; text-decoration: none; transition: 0.3s;
+}
+.social-icons a:hover { background-color: #e67e22; color: white; }
+
+.footer-col h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #e67e22; }
+
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a { text-decoration: none; color: #636e72; font-size: 0.95rem; transition: color 0.2s; }
+.footer-col ul li a:hover { color: #e67e22; }
+
+.footer-bottom {
+    text-align: center; padding: 25px 0; border-top: 1px solid #f1f2f6;
+    color: #b2bec3; font-size: 0.85rem; margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-card { width: 90%; padding: 20px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .footer-container { flex-direction: column; gap: 40px; }
+}

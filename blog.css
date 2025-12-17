@@ -1,0 +1,199 @@
+/* =========================================
+   1. RESET & GLOBAL STYLE
+========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+:root { --primary: #d38d38; --dark: #1f1f1f; --light: #f9f9f9; --text-white: #ffffff; }
+body { background-color: var(--text-white); color: var(--dark); line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* =========================================
+   1. NAVBAR TRANSPARAN (BARU)
+   Menu nempel di atas gambar, background bening
+========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    
+    /* INI KUNCINYA: Posisi Absolute & Background Transparan */
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    background-color: transparent; 
+    z-index: 1000; /* Agar selalu di paling depan */
+}
+
+/* Tulisan Menu jadi Putih agar kelihatan di background gelap */
+.logo h2 { 
+    color: white; 
+    font-size: 24px; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Bayangan sedikit biar jelas */
+}
+.logo span { color: var(--primary); }
+
+.nav-links { list-style: none; display: flex; gap: 30px; }
+
+.nav-links a { 
+    text-decoration: none; 
+    color: white; /* WAJIB PUTIH */
+    font-weight: 500;
+    transition: 0.3s; 
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.nav-links a:hover { color: var(--primary); }
+
+/* Tombol Navbar (Misal: Mitra Tukang) */
+.btn-navbar {
+    padding: 10px 25px; 
+    border: 2px solid var(--primary);
+    color: white; /* Tulisan putih */
+    border-radius: 30px; 
+    text-decoration: none;
+    font-weight: 600; 
+    transition: 0.3s;
+}
+.btn-navbar:hover { background: var(--primary); color: white; }
+/* =========================================
+   3. PAGE HERO (Header Gambar Besar)
+   (PENTING: Agar header sama seperti Home)
+========================================= */
+.page-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Tinggi Header */
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden;
+    margin-bottom: -50px; /* Efek menumpuk agar kotak oren naik sedikit */
+    z-index: 1;
+}
+
+.hero-bg {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; object-fit: cover; z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: -1;
+}
+
+.hero-text {
+    position: relative; z-index: 1; color: white; padding: 0 20px; max-width: 800px;
+}
+
+.hero-text h1 {
+    font-size: 3rem; font-weight: 800; margin-bottom: 15px;
+    line-height: 1.2; text-transform: uppercase;
+}
+
+.hero-text p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+/* =========================================
+   4. KONTEN BLOG (Kotak Gradient Oranye)
+========================================= */
+.blog-wrapper {
+    padding: 60px 0 100px 0;
+    background: white;
+    min-height: 100vh;
+    position: relative; 
+    z-index: 10; /* Agar kotak ini berada di atas header gambar */
+}
+
+/* KOTAK BESAR GRADIENT */
+.big-gradient-box {
+    background: linear-gradient(180deg, #f48c2e 0%, #753a15 100%);
+    border-radius: 40px;
+    padding: 60px 40px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Judul Tengah */
+.blog-heading { text-align: center; max-width: 800px; margin: 0 auto 50px auto; }
+.blog-heading h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; color: white; }
+.blog-heading p { font-size: 1rem; color: rgba(255, 255, 255, 0.9); line-height: 1.6; }
+
+/* Grid Layout */
+.blog-grid-new {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* KARTU ITEM */
+.b-card {
+    background: rgba(60, 20, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex; flex-direction: column;
+}
+.b-card:hover { background: rgba(60, 20, 0, 0.5); transform: translateY(-5px); }
+
+/* Gambar Kartu */
+.b-img {
+    height: 150px; overflow: hidden; border-radius: 20px 20px 0 0;
+    margin: 10px 10px 0 10px; width: calc(100% - 20px);
+}
+.b-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Konten Kartu */
+.b-content { padding: 15px; text-align: center; }
+
+/* Tag Kecil */
+.b-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem; text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 10px; color: #ffdcb0;
+}
+
+.b-content h4 {
+    font-size: 0.95rem; font-weight: 500; line-height: 1.4; color: white;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .blog-grid-new { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .blog-grid-new { grid-template-columns: 1fr; }
+    .big-gradient-box { padding: 40px 20px; border-radius: 25px; }
+    .blog-heading h2 { font-size: 1.8rem; }
+    .nav-links { display: none; }
+    .page-hero { height: 50vh; }
+    .hero-text h1 { font-size: 2rem; }
+}
+
+/* =========================================
+   5. FOOTER STYLE
+========================================= */
+footer {
+    background: var(--text-white);
+    color: var(--dark);
+    padding: 70px 0 20px;
+    border-top: 1px solid #eee;
+}
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; }
+.footer-col h3 { color: var(--primary); margin-bottom: 20px; }
+.footer-col h4 { color: var(--dark); margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; cursor: pointer; transition: 0.2s; color: #555; }
+.footer-col ul li:hover { color: var(--primary); }
+.sosmed i { font-size: 1.2rem; margin-right: 15px; color: var(--dark); cursor: pointer; transition: 0.3s; }
+.sosmed i:hover { color: var(--primary); }
+.app-buttons button {
+    display: block; margin-bottom: 10px; padding: 10px 20px;
+    background: var(--dark); color: white; border: none; border-radius: 5px;
+    cursor: pointer; width: 100%; font-weight: 600; transition: 0.3s;
+}
+.app-buttons button:hover { background: var(--primary); }
+.copyright { text-align: center; border-top: 1px solid #eee; padding-top: 20px; font-size: 0.9rem; color: #777; }
